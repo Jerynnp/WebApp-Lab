@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function convertFahrenheitToCelsius(Fahrenheit){
-            celcieus=(Fahrenheit-32) * (5/9)
-            return celcieus
+        //สร้างฟังก์ชันแรก  
+        function convertFahrenheitToCelsius(Fahrenheit){ //อย่าลืมรับพารามิเตอร์'Fahrenheit'เข้ามาแบบนี้ jsไม่มีการกำหนดชนิดของตัวแปร
+            celcieus=(Fahrenheit-32) * (5/9) //คำนวณใส่ในตัวแปรเพื่อที่จะใส่ได้ส่งค่าแบบสวย ๆ 545555
+            return celcieus   //return ค่า
+        } 
+        //ฟังก์ชันที่สอง
+        function greetPerson(name){ //อย่าลืมรับพารามิเตอร์name
+            console.log("Hello, "+name+"!") //แสดงผลเลย ไม่มีการreturnค่า 
         }
-        function greetPerson(name){
-            console.log("Hello, "+name+"!")
-        }
+        //สร้างfunctionที่สาม อันนี้มีการreturnค่า
         function calculateCircleArea(r){
             ccArea = (3.141592653589793)*(r**2)
             return ccArea
         }
+        //มาเรียกใช้ทุกfunctionตรงนี้
         console.log(convertFahrenheitToCelsius(68));
         greetPerson("Patcharapon Kaewyong");
         console.log(calculateCircleArea(5));
