@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        //ขั้นตอนที่ 1 สร้างarray ของ object
         let cards = [
             {Make:'Toyota', Medel:'Camry',Year:2019},
             {Make:'Honda',Model:'Civic',Year:2020},
@@ -12,20 +13,23 @@
             {Make:'Chevrolet',Model:'Cruze', Year:2021},
             {Make:'Nissan',Model:'Sentra',Year:2017}
         ]
-        for(i=1;i<=cards.length;i++){
-            temp_Make=cards[i-1].Make
-            if(temp_Make=='Toyota'){
+        //ขั้นตอนที่ 2 วนลูปเพื่อเช็ค ตามโจทย์คือ make / year
+        for(i=1;i<=cards.length;i++){ //เราเริ่มนับที่1เพราะตรงผลลัพธ์car_ มันจะได้เริ่มที่1 และมาi-1ที่ idexแทน เพราะมันกำหนดแค่2ครั้ง แต่car_กำหนดหลายครั้งมากกว่า
+            //ขั้นตอนที่ 2.1 | เช็คmake
+            temp_Make=cards[i-1].Make // อันนี้สร้างตัวแปรมาเก็บmake เพราะเวลาแก้ไขจะได้แก้ไขทีเดียว แต่ถ้าไม่สร้างมาเก็บก็เข้าด้วยcards[i-1].Make แทน ทุกบรรทัด 
+            //มันให้มามสามเื่อนไขคือ check Toyota ,Honda และอื่น ๆ ดังนั้นแบบนี้เมหาะที่จะใช้ if, else if, else (การใช้elseมันไม่ต้องกำหนดเงื่อนไข เลยสบาย)
+            if(temp_Make=='Toyota'){ //เช็คToyota
                 console.log("car"+i+" is a Toyota.")
             }else if(temp_Make=='Honda'){
-                console.log("car"+i+" is a Honda.")
-            }else{
-                console.log('car'+i+' is from another manufacturer.')
+                console.log("car"+i+" is a Honda.") //เช็คHonda
+            }else{   //อื่น ๆ
+                console.log('car'+i+' is from another manufacturer.') 
             }
 
-            temp_Year=cards[i-1].Year
-            if(temp_Year>=2020){
+            temp_Year=cards[i-1].Year  //สร้างตัวแปรเช็คyear
+            if(temp_Year>=2020){ //ถ้าyearมากกว่าหรือเท่ากับ2020
                  console.log('car'+i+' is a recent model.')
-             }else{
+             }else{            // ถ้าไม่เท่า
                 console.log('car'+i+' is an older model.')
         }
     }
