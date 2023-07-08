@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let cards = [
+            {Make:'Toyota', Medel:'Camry',Year:2019},
+            {Make:'Honda',Model:'Civic',Year:2020},
+            {Make:'Ford', Model:'Mustang',Year:2018},
+            {Make:'Chevrolet',Model:'Cruze', Year:2021},
+            {Make:'Nissan',Model:'Sentra',Year:2017}
+        ]
+        for(i=1;i<=cards.length;i++){
+            temp_Make=cards[i-1].Make
+            if(temp_Make=='Toyota'){
+                console.log("car"+i+" is a Toyota.")
+            }else if(temp_Make=='Honda'){
+                console.log("car"+i+" is a Honda.")
+            }else{
+                console.log('car'+i+' is from another manufacturer.')
+            }
+
+            temp_Year=cards[i-1].Year
+            if(temp_Year>=2020){
+                 console.log('car'+i+' is a recent model.')
+             }else{
+                console.log('car'+i+' is an older model.')
+        }
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
