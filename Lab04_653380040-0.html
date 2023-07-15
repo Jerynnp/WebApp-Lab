@@ -5,28 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        //สร้างarray , เหตุผลที่สร้างไว้นอกfunctionเพราะเวลาไปเรียกใช้ มันจะได้เรียกใช้ได้ทุกฟังก์ชัน ถ้าว่าเราเอาตัวแปรนี้ไปใส่ในฟังก์ชันใดฟังก์ชันหนึ่ง ตัวฟังก์ชันอื่น ๆ ก็จะหาตัวแปรนี้ไม่เจอ
         let food = []
+        //สร้างฟังก์ชันเพิ่มอาหาร
         function addFood(){
-            let textbox = document.getElementById("Food")
+            let textbox = document.getElementById("Food") //เลือกตัวที่ต้องการดำเนินการ โดยเลือกจากไอดี ให้มาเก็บใน textbox
+            //สร้างเงื่อนไขตรวจสอบข้อมูลภายใน โดยใช้ .value เป็นตัวดึงข้อมูลมา (ข้อมูลดิบ ๆ ด้านในอะ ที่เป็นที่ผู้ใช้กรอกมา)
+            //ถ้าข้อมูลว่างเปล่า
             if(textbox.value==""){
-                alert("กรุณากรอกข้อมูลอาหาร")
-            }else{
-                food.push(textbox.value)
-                alert("เพิ่มข้อมูลอาหารสำเร็จ")
-                textbox.value=""
+                alert("กรุณากรอกข้อมูลอาหาร") //แสดงเตือนขึ้นมา
+            }else{  //ถ้าไม่ว่างเปล่า
+                food.push(textbox.value) //push(เพิ่มต่อตัวท้ายสุดในarray)เข้าไปในfood[]
+                alert("เพิ่มข้อมูลอาหารสำเร็จ")  //แสดงเตือนขึ้นมา
+                textbox.value=""          //resetค่าในช่องรับข้อมูลเข้ามาให้เป็น"" หรือว่างเปล่า
             }
         }
+        //สร้างฟังก์ชันแสดงรายการอาหาร
+        //ภาษาhtmlเวลาจะดำเนินการอะไรกับมัน ต้องเข้าถึงตามลำดับtag จากtagนอกสุด โดยลำดับการสร้างตารางก็จะมี table --> tr --> td 
         function showAllFood(){
             let table_food = document.getElementById("showFood")
-            for(let i=0;i<food.length;i++){
-                let tr_food = document.createElement("tr")
-                let td_food = document.createElement("td")
-                td_food.innerHTML= food[i]
+            //เลือกตัวที่ต้องการดำเนินการ โดยเลือกจากไอดี ให้มาเก็บใน table_food
+            for(let i=0;i<food.length;i++){   //สร้างloopมาเช็คในarray เพราะarrayหนึ่ง ๆ อันมันจะเป็นก้อนใหญ่ ๆ แต่เราต้องตรวจสอบมันทีละตัว เลยต้องลูปมันเอา ไม่งั้นต้องเขียนทีละตัว ลำบาก
+                let tr_food = document.createElement("tr") //สร้างtag tr (<tr>)
+                let td_food = document.createElement("td")  //สร้างtag td (<td>)
+                td_food.innerHTML= food[i] //เก็บสมาชิกในตัวแปรfood indexที่i มาใส่ด้านใน(ระหว่าง)tag td (หรือตัวแปรtd_foodที่เราสร้างขึ้นมานั่นเอง)
                 // table.innerHTM=trtemp
                 // trtemp.innerHTML=td_food
-                tr_food.appendChild(td_food)
-                table_food.appendChild(tr_food)
-            }
+                
+                //แทรกตามลำดับ
+                tr_food.appendChild(td_food) //เอาtdที่เราสร้างขึ้นมาไปแทรกในtr
+                table_food.appendChild(tr_food) //เอาtrที่เราสร้างขึ้นมาไปแทรกในtable 
+            } 
+            //ปิดการทำงาน(disable)
             let dAblef = document.getElementById("foodIP")
                 dAblef.disabled = true
             let dAbleAdd = document.getElementById("addBtn")
