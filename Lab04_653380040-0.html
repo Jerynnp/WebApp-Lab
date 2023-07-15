@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let food = []
+        function addFood(){
+            let textbox = document.getElementById("Food")
+            if(textbox.value==""){
+                alert("กรุณากรอกข้อมูลอาหาร")
+            }else{
+                food.push(textbox.value)
+                alert("เพิ่มข้อมูลอาหารสำเร็จ")
+                textbox.value=""
+            }
+        }
+        function showAllFood(){
+            let table_food = document.getElementById("showFood")
+            for(let i=0;i<food.length;i++){
+                let tr_food = document.createElement("tr")
+                let td_food = document.createElement("td")
+                td_food.innerHTML= food[i]
+                // table.innerHTM=trtemp
+                // trtemp.innerHTML=td_food
+                tr_food.appendChild(td_food)
+                table_food.appendChild(tr_food)
+            }
+            let dAblef = document.getElementById("foodIP")
+                dAblef.disabled = true
+            let dAbleAdd = document.getElementById("addBtn")
+                dAbleAdd.disabled = true
+        }
+    </script>
+</head>
+<body>
+    <h3>แบบฟอร์มเพิ่มอาหารจานโปรด</h3>
+    <input type="text" id="Food" >&nbsp;&nbsp;
+    <input type="button" id="addBtn" value="เพิ่มรายการอาหาร" onclick="addFood()"></input>
+    <br><br>
+    <input type="button" id="showBtn" value="แสดงรายการอาหารโปรดทั้งหมด" onclick="showAllFood()"></input>
+    <br><br>
+    <table border="1" id="showFood">
+        <tr>
+            <th>แสดงรายการอาหารโปรดทั้งหมด</th>
+        </tr>
+    </table>
+</body>
+</html>
